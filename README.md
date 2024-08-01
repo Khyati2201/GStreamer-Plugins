@@ -8,7 +8,7 @@ gst-launch-1.0 filesrc location=location_to_test_video ! qtdemux name=demux demu
 
 #### **Plugins Used:**  <br/> 
 **filesrc**  <br/> 
-Description: Read data from a file in the local file system.
+*Description:* Read data from a file in the local file system.
              It is a source element.
 
-Properties: location specifies the file path
+*Properties:* location specifies the file path
