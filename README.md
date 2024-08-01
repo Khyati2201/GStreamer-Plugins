@@ -19,8 +19,8 @@ gst-launch-1.0 filesrc location=location_to_test_video ! qtdemux name=demux demu
 *Properties:* name assigns an alias for the demuxer.   
 
 Here, demuxing essentially involves reading multi-part stream and saving each part, i.e., audio and video into individual streams. The two demuxed streams are then processed separately: <br/> 
-##### The audio stream is sent to faad (AAC decoder) <br/> 
-##### The video stream is sent to avdec_h264 (H.264 decoder)   <br/> 
+<small> The audio stream is sent to faad (AAC decoder) <br/> 
+<small> The video stream is sent to avdec_h264 (H.264 decoder)   <br/> 
 
 **faad**
 
