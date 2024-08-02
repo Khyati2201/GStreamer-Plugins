@@ -96,11 +96,12 @@ gst-launch-1.0 filesrc location=location_to_test_video ! qtdemux name=demux demu
 **h264parse**
 *Description:* Parses H.264 streams, preparing them for further processing. <br/> 
 
-**rtph264pay**
-*Description:* Payloads h.264 video into RTP (Real-time Transport Protocol) packets for network transmission.
-**udpsink**
+**rtph264pay** <br/>
 
-*Description:* Sends data over UDP (User Datagram Protocol)
+*Description:* Payloads h.264 video into RTP (Real-time Transport Protocol) packets for network transmission.
+**udpsink** <br/>
+
+*Description:* Sends data over UDP (User Datagram Protocol) <br/>
 *Properties:*
 * 'host' specifies the destination IP address.
 * 'port' specifies the destination port.
