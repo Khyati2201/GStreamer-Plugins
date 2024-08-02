@@ -66,13 +66,14 @@ gst-launch-1.0 -e v4l2src ! videoconvert ! x264enc tune=zerolatency bitrate=500 
 
 *Description:* Used to capture video from v4l2 devices(e.g.-webcam). It is a source element.
 
-**x264enc**
+**x264enc** <br/> 
 
-*Description:* Encodes raw video into h.264 format.
-*Properties:* 
-tune=zerolatency: Optimizes for low latency.
-bitrate=500: Sets the bitrate to 500 kbps.
-speed-preset=superfast: Uses the superfast encoding preset for faster processing.
+*Description:* Encodes raw video into h.264 format. <br/> 
+*Properties:* <br/> 
+tune=zerolatency: Optimizes for low latency. <br/> 
+bitrate=500: Sets the bitrate to 500 kbps. <br/> 
+speed-preset=superfast: Uses the superfast encoding preset for faster processing.  <br/> 
+
 *Video encoding is the process of compressing the size of RAW video files into smaller file sizes to enable quick and efficient transposition of video content over the internet.*
 
 
