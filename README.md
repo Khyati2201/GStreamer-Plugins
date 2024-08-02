@@ -19,8 +19,21 @@ gst-launch-1.0 filesrc location=location_to_test_video ! qtdemux name=demux demu
 *Properties:* name assigns an alias for the demuxer.   
 
 Here, demuxing essentially involves reading multi-part stream and saving each part, i.e., audio and video into individual streams. The two demuxed streams are then processed separately: <br/> 
-<small> The audio stream is sent to faad (AAC decoder) <br/> 
-<small> The video stream is sent to avdec_h264 (H.264 decoder)   <br/> 
+*The audio stream is sent to faad (AAC decoder) <br/> 
+The video stream is sent to avdec_h264 (H.264 decoder)*   <br/> 
 
 **faad**
 
+*Description:* Decodes AAC stream(audio)
+
+*Video decoding is the process of converting a compressed video file into a format that can be displayed or manipulated by the device. It is used to obtain the original video frames which were compressed when the video was stored.*
+
+**audioconvert**
+
+*Description:* Converts raw audio between different formats, sample types, and channel orders.
+
+*Usage:* It ensures that audio stream is in a suitable format for further processing.
+
+**audioresample**
+*Description:* Resamples raw audio to different sample rates.
+*Usage:* Adjusts the sample rate of the audio stream to match the requirements of the audio sink.
