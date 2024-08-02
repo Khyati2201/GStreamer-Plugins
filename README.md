@@ -59,7 +59,8 @@ The video stream is sent to avdec_h264 (H.264 decoder)*   <br/>
 
 #### **Pipeline:** <br/> 
 ```
-gst-launch-1.0 -e v4l2src ! videoconvert ! x264enc tune=zerolatency bitrate=500 speed-preset=superfast ! queue ! mp4mux ! filesink location=output.mp4
+gst-launch-1.0 -e v4l2src ! videoconvert ! x264enc tune=zerolatency bitrate=500 speed-preset=superfast ! queue ! mp4mux name=mux ! filesink location=output.mp4 \
+    alsasrc ! audioconvert ! audioresample ! voaacenc bitrate=128000 ! queue ! mux.
 ```
 #### **Plugins Used:**  <br/> 
 **v4l2src**
@@ -74,7 +75,9 @@ gst-launch-1.0 -e v4l2src ! videoconvert ! x264enc tune=zerolatency bitrate=500 
 * bitrate=500: Sets the bitrate to 500 kbps. <br/> 
 * speed-preset=superfast: Uses the superfast encoding preset for faster processing.  <br/> 
 
-*Video encoding is the process of compressing the size of RAW video files into smaller file sizes to enable quick and efficient transposition of video content over the internet.*
+*Video encoding is the process of compressing the size of RAW video files into smaller file sizes to enable quick and efficient transposition of video content over the internet.* <br/>
+
+*Bitrate is the rate at which bits are transmitted or processed per unit of time*
 
 **mp4mux**
 
@@ -86,6 +89,16 @@ gst-launch-1.0 -e v4l2src ! videoconvert ! x264enc tune=zerolatency bitrate=500 
 *Description:* Writes incoming data to a file in the local file system. It is a sink element. <br/>
 *Properties:* 'location' specifies the output file path
 
+**alsasrc** <br/> 
+
+*Description:* Captures audio from an ALSA (Advanced Linux Sound Architecture) device. It is a source element.
+
+**voaacenc:** <br/> 
+
+*Description:* This plugin encodes raw audio stream into AAC format for efficient storage. <br/> 
+*Properties:* bitrate=128000 sets the encoding bitrate to 128 kbps.
+
+*AAC (Advanced Audio Coding) is an audio coding standard for lossy digital audio compression.*
 ### Task 3: Read an mp4 file and send the data over udpsink. Receive the same data via udpsource and display on the screen.
 
 #### Sender Pipeline: <br/> 
