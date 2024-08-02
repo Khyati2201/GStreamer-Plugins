@@ -40,7 +40,7 @@ The video stream is sent to avdec_h264 (H.264 decoder)*   <br/>
 
 **autoaudiosink** <br/> 
 
-*Description:* Automatically detects an appropriate audio sink to use. It is done by scanning for elements with Sink" and "Audio" in the class field of their element information.
+*Description:* Automatically detects an appropriate audio sink to use. It is done by scanning for elements with Sink" and "Audio" in the class field of their element information. 
 
 **avdec_h264** <br/> 
 
@@ -53,7 +53,7 @@ The video stream is sent to avdec_h264 (H.264 decoder)*   <br/>
 
 **autovideosink**
 
-*Description:* Automatically detects an appropriate video sink to use. It is done by scanning for elements with Sink" and "Video" in the class field of their element information.
+*Description:* Automatically detects an appropriate video sink to use. It is done by scanning for elements with Sink" and "Video" in the class field of their element information. It is a sink element.
 
 ### Task 2: Capture data from camera and write it into an mp4 file
 
@@ -61,3 +61,19 @@ The video stream is sent to avdec_h264 (H.264 decoder)*   <br/>
 ```
 gst-launch-1.0 -e v4l2src ! videoconvert ! x264enc tune=zerolatency bitrate=500 speed-preset=superfast ! queue ! mp4mux ! filesink location=output.mp4
 ```
+#### **Plugins Used:**  <br/> 
+**v4l2src**
+
+*Description:* Used to capture video from v4l2 devices(e.g.-webcam). It is a source element.
+
+**x264enc**
+
+*Description:* Encodes raw video into h.264 format.
+*Properties:* 
+tune=zerolatency: Optimizes for low latency.
+bitrate=500: Sets the bitrate to 500 kbps.
+speed-preset=superfast: Uses the superfast encoding preset for faster processing.
+*Video encoding is the process of compressing the size of RAW video files into smaller file sizes to enable quick and efficient transposition of video content over the internet.*
+
+
+
