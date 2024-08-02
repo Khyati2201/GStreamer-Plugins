@@ -109,4 +109,8 @@ gst-launch-1.0 filesrc location=location_to_test_video ! qtdemux name=demux demu
 
 *UDP is a communication protocol used across the internet for time-sensitive transmissions such as video playback. Since it is a connectionless protocol, there is no need to establish a connection before data transfer, thus establishing low-latency and loss-tolerating connections over the network.*
 
+#### Receiver Pipeline: <br/>
+```
+gst-launch-1.0 udpsrc port=5000 caps="application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264" ! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink
+```
 
