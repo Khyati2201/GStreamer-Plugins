@@ -130,4 +130,6 @@ gst-launch-1.0 udpsrc port=5000 caps="application/x-rtp, media=(string)video, cl
 ### Task 4: Receive video from udpsource and write into an mp4 file
 #### Sender Pipeline: <br/> 
 ```
-
+gst-launch-1.0 filesrc location=location_to_test_video ! qtdemux name=demux demux.video_0 ! h264parse ! avdec_h264 ! videoconvert ! x264enc ! rtph264pay ! udpsink host=127.0.0.1 port=5000
+```
+#### **Plugins Used:**  <br/> 
