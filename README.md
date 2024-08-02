@@ -30,10 +30,10 @@ The video stream is sent to avdec_h264 (H.264 decoder)*   <br/>
 
 **audioconvert**
 
-*Description:* Converts raw audio between different formats, sample types, and channel orders.
-
+*Description:* Converts raw audio between different formats, sample types, and channel orders. <br/> 
 *Usage:* It ensures that audio stream is in a suitable format for further processing.
 
-**audioresample**
-*Description:* Resamples raw audio to different sample rates.
+**audioresample** <br/> 
+
+*Description:* Resamples raw audio to different sample rates. <br/> 
 *Usage:* Adjusts the sample rate of the audio stream to match the requirements of the audio sink.
