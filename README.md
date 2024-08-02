@@ -88,7 +88,20 @@ gst-launch-1.0 -e v4l2src ! videoconvert ! x264enc tune=zerolatency bitrate=500 
 
 ### Task 3: Read an mp4 file and send the data over udpsink. Receive the same data via udpsource and display on the screen.
 
-#### ** Sender Pipeline:** <br/> 
+#### Sender Pipeline: <br/> 
 ```
-gst-launch-1.0 filesrc location=/home/khyati/Downloads/test_video.mp4 ! qtdemux name=demux demux.video_0 ! h264parse ! avdec_h264 ! videoconvert ! x264enc ! rtph264pay ! udpsink host=127.0.0.1 port=5000
+gst-launch-1.0 filesrc location=location_to_test_video ! qtdemux name=demux demux.video_0 ! h264parse ! avdec_h264 ! videoconvert ! x264enc ! rtph264pay ! udpsink host=127.0.0.1 port=5000
 ```
+#### **Plugins Used:**  <br/> 
+**h264parse**
+*Description:* Parses H.264 streams, preparing them for further processing. <br/> 
+
+**rtph264pay**
+*Description:* Payloads h.264 video into RTP (Real-time Transport Protocol) packets for network transmission.
+**udpsink**
+
+*Description:* Sends data over UDP (User Datagram Protocol)
+*Properties:*
+* 'host' specifies the destination IP address.
+* 'port' specifies the destination port.
+  
