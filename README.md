@@ -70,9 +70,9 @@ gst-launch-1.0 -e v4l2src ! videoconvert ! x264enc tune=zerolatency bitrate=500 
 
 *Description:* Encodes raw video into h.264 format. <br/> 
 *Properties:* <br/> 
-*tune=zerolatency: Optimizes for low latency. <br/> 
-*bitrate=500: Sets the bitrate to 500 kbps. <br/> 
-*speed-preset=superfast: Uses the superfast encoding preset for faster processing.  <br/> 
+* tune=zerolatency: Optimizes for low latency. <br/> 
+* bitrate=500: Sets the bitrate to 500 kbps. <br/> 
+* speed-preset=superfast: Uses the superfast encoding preset for faster processing.  <br/> 
 
 *Video encoding is the process of compressing the size of RAW video files into smaller file sizes to enable quick and efficient transposition of video content over the internet.*
 
