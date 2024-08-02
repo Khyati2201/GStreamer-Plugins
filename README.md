@@ -54,3 +54,10 @@ The video stream is sent to avdec_h264 (H.264 decoder)*   <br/>
 **autovideosink**
 
 *Description:* Automatically detects an appropriate video sink to use. It is done by scanning for elements with Sink" and "Video" in the class field of their element information.
+
+### Task 2: Capture data from camera and write it into an mp4 file
+
+#### **Pipeline:** <br/> 
+```
+gst-launch-1.0 -e v4l2src ! videoconvert ! x264enc tune=zerolatency bitrate=500 speed-preset=superfast ! queue ! mp4mux ! filesink location=output.mp4
+```
