@@ -104,7 +104,9 @@ gst-launch-1.0 filesrc location=location_to_test_video ! qtdemux name=demux demu
 
 *Description:* It is a network sink that sends UDP(User Datagram Protocol) packets to the network. It is combined with rtph264pay to implement RTP streaming. <br/>
 *Properties:*
-* 'host' specifies the destination IP address.
+* 'host' specifies the destination IP address.(IP address 127.0. 0.1 is called the loopback address/localhost and is used by a computer to refer to itself)
 * 'port' specifies the destination port.
 
 *UDP is a communication protocol used across the internet for time-sensitive transmissions such as video playback. Since it is a connectionless protocol, there is no need to establish a connection before data transfer, thus establishing low-latency and loss-tolerating connections over the network.*
+
+
