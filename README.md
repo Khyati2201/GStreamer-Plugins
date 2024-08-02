@@ -82,7 +82,7 @@ gst-launch-1.0 -e v4l2src ! videoconvert ! x264enc tune=zerolatency bitrate=500 
 **mp4mux**
 
 *Description:* It merges streams (audio and video) into ISO MPEG-4 (.mp4) files. <br/> 
-*Propoerties*: 'name' assigns an alias for referencing the muxer.
+*Properties*: 'name' assigns an alias for referencing the muxer.
 
 **filesink**
 
