@@ -135,7 +135,7 @@ gst-launch-1.0 filesrc location=location_to_test_video ! qtdemux name=demux demu
 
 #### Receiver Pipeline: <br/>
 ```
-
+gst-launch-1.0 udpsrc port=5000 caps="application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264" ! rtph264depay ! avdec_h264 ! x264enc ! mp4mux ! filesink location=task_4.mp4
 ```
 #### **Plugins Used:**  <br/> 
 
