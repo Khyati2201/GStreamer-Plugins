@@ -94,11 +94,11 @@ gst-launch-1.0 filesrc location=location_to_test_video ! qtdemux name=demux demu
 ```
 #### **Plugins Used:**  <br/> 
 **h264parse**
-*Description:* Parses H.264 streams, preparing them for further processing. <br/> 
+*Description:* Parses h.264 streams, ensuring that the raw h.264 bitstream from the file is correctly prepared and formatted for the h.264 decoder (avdec_h264) <br/> 
 
 **rtph264pay** <br/>
 
-*Description:* Payloads h.264 video into RTP (Real-time Transport Protocol) packets for network transmission.
+*Description:* Takes h.264 video as input and turns it into into RTP (Real-time Transport Protocol) packets for network transmission. RTP is a standard format used to send many types of data over a network, including video.
 
 **udpsink**  <br/>
 
