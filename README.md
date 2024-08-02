@@ -16,7 +16,7 @@ gst-launch-1.0 filesrc location=location_to_test_video ! qtdemux name=demux demu
 **qtdemux**
 
 *Description:* Demuxes a QuickTime file format(scuh as mp4) into raw or compressed audio and/or video streams.   <br/> 
-*Properties:* name assigns an alias for the demuxer.   
+*Properties:* 'name' assigns an alias for the demuxer.   
 
 Here, demuxing essentially involves reading multi-part stream and saving each part, i.e., audio and video into individual streams. The two demuxed streams are then processed separately: <br/> 
 *The audio stream is sent to faad (AAC decoder) <br/> 
@@ -76,5 +76,8 @@ gst-launch-1.0 -e v4l2src ! videoconvert ! x264enc tune=zerolatency bitrate=500 
 
 *Video encoding is the process of compressing the size of RAW video files into smaller file sizes to enable quick and efficient transposition of video content over the internet.*
 
+**mp4mux**
 
+*Description:* It merges streams (audio and video) into ISO MPEG-4 (.mp4) files.
+*Propoerties*: 'name' assigns an alias for referencing the muxer.
 
