@@ -93,7 +93,7 @@ gst-launch-1.0 -e v4l2src ! videoconvert ! x264enc tune=zerolatency bitrate=500 
 gst-launch-1.0 filesrc location=location_to_test_video ! qtdemux name=demux demux.video_0 ! h264parse ! avdec_h264 ! videoconvert ! x264enc ! rtph264pay ! udpsink host=127.0.0.1 port=5000
 ```
 #### **Plugins Used:**  <br/> 
-**h264parse**
+**h264parse** <br/> 
 *Description:* Parses h.264 streams, ensuring that the raw h.264 bitstream from the file is correctly prepared and formatted for the h.264 decoder (avdec_h264) <br/> 
 
 **rtph264pay** <br/>
@@ -102,8 +102,9 @@ gst-launch-1.0 filesrc location=location_to_test_video ! qtdemux name=demux demu
 
 **udpsink**  <br/>
 
-*Description:* Sends data over UDP (User Datagram Protocol)  <br/>
+*Description:* It is a network sink that sends UDP(User Datagram Protocol) packets to the network. It is combined with rtph264pay to implement RTP streaming. <br/>
 *Properties:*
 * 'host' specifies the destination IP address.
 * 'port' specifies the destination port.
-  
+
+*UDP is a communication protocol used across the internet for time-sensitive transmissions such as video playback. Since it is a connectionless protocol, there is no need to establish a connection before data transfer, thus establishing low-latency and loss-tolerating connections over the network.*
