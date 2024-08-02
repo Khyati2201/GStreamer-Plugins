@@ -37,3 +37,20 @@ The video stream is sent to avdec_h264 (H.264 decoder)*   <br/>
 
 *Description:* Resamples raw audio to different sample rates. <br/> 
 *Usage:* Adjusts the sample rate of the audio stream to match the requirements of the audio sink.
+
+**autoaudiosink** <br/> 
+
+*Description:* Automatically detects an appropriate audio sink to use. It is done by scanning for elements with Sink" and "Audio" in the class field of their element information.
+
+**avdec_h264** <br/> 
+
+*Description:* decodes h.264 video streams, i.e converts demuxed h.264 video stream into raw video.
+
+**videoconvert** <br/> 
+
+*Description:* Converts video frames between a great variety of video formats.  <br/> 
+*Usage:* Here it is needed to ensure compatibility between avdec_h264's source and autovideosink's sink pads.
+
+**autovideosink**
+
+*Description:* Automatically detects an appropriate video sink to use. It is done by scanning for elements with Sink" and "Video" in the class field of their element information.
