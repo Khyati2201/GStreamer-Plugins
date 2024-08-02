@@ -95,6 +95,7 @@ gst-launch-1.0 filesrc location=location_to_test_video ! qtdemux name=demux demu
 #### **Plugins Used:**  <br/> 
 **h264parse** <br/> 
 *Description:* Parses h.264 streams, ensuring that the raw h.264 bitstream from the file is correctly prepared and formatted for the h.264 decoder (avdec_h264) <br/> 
+(H.264 bitsream -> bytestream) <br/>
 
 **rtph264pay** <br/>
 
@@ -102,7 +103,7 @@ gst-launch-1.0 filesrc location=location_to_test_video ! qtdemux name=demux demu
 
 **udpsink**  <br/>
 
-*Description:* It is a network sink that sends UDP(User Datagram Protocol) packets to the network. It is combined with rtph264pay to implement RTP streaming. <br/>
+*Description:* It is a network sink that sends UDP(User Datagram Protocol) packets to the network. Here, it is combined with rtph264pay to implement RTP streaming. <br/>
 *Properties:*
 * 'host' specifies the destination IP address.(IP address 127.0. 0.1 is called the loopback address/localhost and is used by a computer to refer to itself)
 * 'port' specifies the destination port.
@@ -112,5 +113,21 @@ gst-launch-1.0 filesrc location=location_to_test_video ! qtdemux name=demux demu
 #### Receiver Pipeline: <br/>
 ```
 gst-launch-1.0 udpsrc port=5000 caps="application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264" ! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink
+```
+#### **Plugins Used:**  <br/> 
+**udpsrc** <br/> 
+
+*Description:* It is a network source that reads UDP packets(containing the h.264 video stream) from the network. Here, it is combined with rtph264depay to implement RTP streaming. <br/>
+
+*Properties:*
+* port- specifies the port to receive the packets from.
+* caps- defines the capabilities of the stream, specifying it as RTP with h.264 encoding.
+
+**rtph264depay** <br/> 
+
+*Description:* Extracts H.264 video from RTP packets.
+
+### Task 4: Receive video from udpsource and write into an mp4 file
+#### Sender Pipeline: <br/> 
 ```
 
